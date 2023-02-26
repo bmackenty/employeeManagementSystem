@@ -84,7 +84,6 @@
             <div class="alert alert-success" role="alert">
                 You have a <strong>'employee'</strong> table in your database. That's good.
             </div>
-            <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
         <?php } else {
             $sql_create_employees = "CREATE TABLE employees (
                 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -109,13 +108,38 @@
             <div class="alert alert-success" role="alert">
                 You didn't have a <strong>'employee'</strong> table in your database, but I've created one for you.
             </div>
-            <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
         <?php
         }
         ?>
 
 
+<?php 
+$query_test_user_table = mysqli_query($connect, "select 1 FROM users LIMIT 1;");
+if($query_test_user_table !== FALSE)
+{ ?>
+    <div class="alert alert-success" role="alert">
+    You have a <strong>'users'</strong> table in your database. That's good. 
+    </div>
+    <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
 
+<?php }
+else
+{
+    $sql_create_users = "CREATE TABLE users (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        email TEXT NULL,
+        role TEXT NULL,
+        password TEXT NULL
+        )";
+    mysqli_query($connect, $sql_create_users); ?>
+        <div class="alert alert-success" role="alert">
+    You didn't have a <strong>'users'</strong> table in your database, but I've created one for you.  
+    </div>
+    <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
+
+    <?php
+}
+?>
 
 
 
