@@ -120,7 +120,6 @@ if($query_test_user_table !== FALSE)
     <div class="alert alert-success" role="alert">
     You have a <strong>'users'</strong> table in your database. That's good. 
     </div>
-    <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
 
 <?php }
 else
@@ -135,10 +134,36 @@ else
         <div class="alert alert-success" role="alert">
     You didn't have a <strong>'users'</strong> table in your database, but I've created one for you.  
     </div>
+
+
+
+<?php
+}
+?>
+
+
+<?php 
+$query_test_admin_user = mysqli_query($connect, "SELECT * FROM users WHERE role ='admin';");
+if(mysqli_num_rows($query_test_admin_user) > 0) {
+   ?>
+    <div class="alert alert-success" role="alert">
+    You have an <strong>'admin'</strong> user in your users table. That's good. 
+    </div>
+   
+   <?php 
+
+} else { 
+    $hashed_password = password_hash('employee_admin', PASSWORD_DEFAULT);
+    $query_create_admin_user = mysqli_query($connect, "INSERT INTO users (email, role, password) VALUES ('admin@admin.com', 'admin', '$hashed_password');");
+    
+    
+    ?>
+    <div class="alert alert-success" role="alert">
+    You do not have an admin user in your <strong>'users'</strong> table in your database. That's bad. I've created an admin user with default password.
+    </div>
     <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
 
-    <?php
-}
+<?php }
 ?>
 
 
