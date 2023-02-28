@@ -13,9 +13,13 @@
 // prints an error message helping us understand the reason why we could not connect 
 // to the database
 
-$connect = mysqli_connect("localhost","YOURUSERNAME","YOURPASSWORD","YOURUSERNAME");
-if (!$connect) {
-    die("Connection failed: " . mysqli_connect_error());
+// Create a new mysqli object with the database credentials
+$connect = new mysqli('localhost', 'username', 'password', 'username');
+
+// Check for errors in the connection
+if ($mysqli->connect_errno) {
+    die('Failed to connect to MySQL: ' . $mysqli->connect_error);
 }
+
 
 ?>
