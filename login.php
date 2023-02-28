@@ -6,7 +6,9 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php 
+    include('navbar.php'); 
+    ?>
     <div class="container">
         <div class="row mt-4">
             <div class="col-4 offset-4">
