@@ -140,6 +140,8 @@
             <div class="alert alert-success" role="alert">
                 You have an <strong>'admin'</strong> user in your users table. That's good.
             </div>
+            <a class="btn btn-success" href="index.php">You are all setup - go back to the employee management system</a>
+
 
         <?php
 
