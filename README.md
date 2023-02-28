@@ -1,9 +1,9 @@
 # Employee Management System
 
-An employee management system. Designed to be modular. 
+An employee management system. 
 
 # Context
-This system is designed primarily as a tool to help students work on a real-world product / project. It shouldn't matter that this tool is for students; what should matter is that the tools solves a problem it is meant to solve. 
+This system is designed primarily as a tool to help students work on a real-world product / project. It shouldn't matter that this tool is for students; what should matter is that the tools solves a problem it is meant to solve. This is a web-based, php application. 
 
 
 # From chatGPT: 
