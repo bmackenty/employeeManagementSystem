@@ -5,7 +5,7 @@
 // this file is used to open a connection to your database.
 // Anytime you need to connect to a database, you must include this file. 
 // 
-// to setup this file, please find the email I sent with your account information (not moodle)
+// to setup this file, please find the email I sent with your account informatio
 // you need to replace YOURUSERNAME with you username. You need to do this twice
 // you need to replace YOURPASSWORD with your password. You only need to do this once.
 // 
@@ -14,10 +14,10 @@
 // to the database
 
 // Create a new mysqli object with the database credentials
-$connect = new mysqli('localhost', 'username', 'password', 'username');
+$mysql_connect = new mysqli('localhost', 'USERNAME', 'PASSWORD', 'USERNAME');
 
 // Check for errors in the connection
-if ($mysqli->connect_errno) {
+if ($mysql_connect->connect_errno) {
     die('Failed to connect to MySQL: ' . $mysqli->connect_error);
 }
 
