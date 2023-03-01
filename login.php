@@ -8,6 +8,8 @@
 <body>
     <?php 
     include('navbar.php'); 
+    include('logging_inc.php');
+    $logger->log('hello from login page');
     ?>
     <div class="container">
         <div class="row mt-4">
