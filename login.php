@@ -2,30 +2,45 @@
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Employee Management System< - login</title>
+    <title>Login: Employee Management System</title>
 </head>
 
 <body>
-    <?php 
-    include('navbar.php'); 
+    <?php
+    session_start();
+    include('navbar.php');
     include('logging_inc.php');
-    $logger->log('hello from login page');
+   
     ?>
     <div class="container">
+
+        <?php
+        if ($_SESSION['error_login']) {
+        ?>
+            <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                <strong>Error:</strong> Please check your typing and try again.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php
+        }
+        unset($_SESSION['error_login']);
+        ?>
+
+
         <div class="row mt-4">
             <div class="col-4 offset-4">
                 <form action="login_process.php" method="POST">
                     <h3 class="text-center">Please login</h3>
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <input type="email" id="form2Example1" class="form-control" />
-                        <label class="form-label" for="form2Example1">Email address</label>
+                        <input name="email" type="email" id="email1" class="form-control" placeholder="Please type your username" />
+                        <label class="form-label" for="email1">Email address</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                        <input type="password" id="form2Example2" class="form-control" />
-                        <label class="form-label" for="form2Example2">Password</label>
+                        <input name="password" type="password" id="password2" class="form-control" placeholder="Please type your password" />
+                        <label class="form-label" for="password2">Password</label>
                     </div>
 
 
