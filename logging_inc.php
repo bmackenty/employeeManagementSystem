@@ -1,5 +1,13 @@
 <?php 
 
+if (__FILE__ == $_SERVER['SCRIPT_FILENAME']) {
+  // Redirect or display an error message, because this file is being accessed directly
+  header('Location: index.php');
+  exit;
+} else {
+
+
+
 // Include the external file with MySQL connection parameters
 require_once('database_inc.php');
 
@@ -41,5 +49,5 @@ class Logger {
 
 // Instantiate the Logger object with the MySQL connection parameters
 $logger = new Logger($mysql_connect, 'logs');
-
+}
 ?>

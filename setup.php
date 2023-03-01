@@ -48,7 +48,7 @@
         <!-- =========================================== -->
 
         <?php
-        if (!$connect) { ?>
+        if (!$mysql_connect) { ?>
             <div class="alert alert-danger" role="alert">
                 Error: <strong>database_inc.php</strong> is not correctly setup.
             </div>
@@ -73,7 +73,7 @@
         <!-- =========================================== -->
 
         <?php
-        $query_test_employee_table = mysqli_query($connect, "select 1 FROM employees LIMIT 1;");
+        $query_test_employee_table = mysqli_query($mysql_connect, "select 1 FROM employees LIMIT 1;");
         if ($query_test_employee_table !== FALSE) { ?>
             <div class="alert alert-success" role="alert">
                 You have a <strong>'employee'</strong> table in your database. That's good.
@@ -98,7 +98,7 @@
                 employee_notes TEXT NULL,
                 employee_image TEXT NULL
                 )";
-            mysqli_query($connect, $sql_create_employees); ?>
+            mysqli_query($mysql_connect, $sql_create_employees); ?>
             <div class="alert alert-success" role="alert">
                 You didn't have a <strong>'employee'</strong> table in your database, but I've created one for you.
             </div>
@@ -121,7 +121,7 @@
         role TEXT NULL,
         password TEXT NULL
         )";
-            mysqli_query($connect, $sql_create_users); ?>
+            mysqli_query($mysql_connect, $sql_create_users); ?>
             <div class="alert alert-success" role="alert">
                 You didn't have a <strong>'users'</strong> table in your database, but I've created one for you.
             </div>
@@ -134,7 +134,7 @@
 
 
         <?php
-        $query_test_admin_user = mysqli_query($connect, "SELECT * FROM users WHERE role ='admin';");
+        $query_test_admin_user = mysqli_query($mysql_connect, "SELECT * FROM users WHERE role ='admin';");
         if (mysqli_num_rows($query_test_admin_user) > 0) {
         ?>
             <div class="alert alert-success" role="alert">
@@ -147,7 +147,7 @@
 
         } else {
             $hashed_password = password_hash('employee_admin', PASSWORD_DEFAULT);
-            $query_create_admin_user = mysqli_query($connect, "INSERT INTO users (email, role, password) VALUES ('admin@admin.com', 'admin', '$hashed_password');");
+            $query_create_admin_user = mysqli_query($mysql_connect, "INSERT INTO users (email, role, password) VALUES ('admin@admin.com', 'admin', '$hashed_password');");
 
 
         ?>
