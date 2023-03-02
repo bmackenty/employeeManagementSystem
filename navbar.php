@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/bmackenty/employee/">Employee Management</a>
@@ -6,6 +10,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
@@ -16,22 +23,31 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
- 
+
       </ul>
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-		  <ul class="navbar-nav ">
-			<li class="nav-item">
-			  <a class="nav-link" aria-current="page" href="login.php">Login</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="register.php">Register</a>
-			</li>			
-		  </ul>		  
-		</div>
+        <ul class="navbar-nav ">
+          <?php if (!$_SESSION['user_logged_in']) { ?>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="login.php">Login</a>
+            </li>
+          <?php } else {?>
+
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
+            </li>
+            <?php } ?>
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Register</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
